@@ -1,0 +1,27 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "wikitrail-prod",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-03-03",
+    "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "wikitrail",
+          "database_id": "4f81ee93-d63d-4bee-9d9c-f843dce19a38"
+        }
+    ],
+    "secrets_store_secrets": [
+        {
+            "store_id": "<YOUR-STORE-ID>",
+            "binding": "SECRET",
+            "secret_name": "<YOUR-SECRET-NAME>"
+        }
+    ],
+	"observability": {
+		"enabled": true
+	}
+}
